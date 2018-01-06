@@ -1,0 +1,6 @@
+[submodule "src/MOOS-pGPSd"]
+	path = src/MOOS-pGPSd
+	url = https://github.com/ProjectLadon/MOOS-pGPSd.git
+[submodule "src/MOOS-pSBUS"]
+	path = src/MOOS-pSBUS
+	url = https://github.com/ProjectLadon/MOOS-pSBUS.git
