@@ -4,3 +4,12 @@
 [submodule "src/MOOS-pSBUS"]
 	path = src/MOOS-pSBUS
 	url = https://github.com/ProjectLadon/MOOS-pSBUS.git
+[submodule "src/MOOS-paREST"]
+	path = src/MOOS-paREST
+	url = https://github.com/ProjectLadon/MOOS-paREST.git
+[submodule "src/MOOS-pMux"]
+	path = src/MOOS-pMux
+	url = https://github.com/ProjectLadon/MOOS-pMux.git
+[submodule "src/MOOS-pMixAmp"]
+	path = src/MOOS-pMixAmp
+	url = https://github.com/ProjectLadon/MOOS-pMixAmp.git

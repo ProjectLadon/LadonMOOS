@@ -16,6 +16,9 @@ INCLUDE_DIRECTORIES(${LOCAL_LIBRARY_DIRS})
 #============================================================================
 ADD_SUBDIRECTORY(MOOS-pGPSd)
 ADD_SUBDIRECTORY(MOOS-pSBUS)
+ADD_SUBDIRECTORY(MOOS-pMixAmp)
+ADD_SUBDIRECTORY(MOOS-pMux)
+ADD_SUBDIRECTORY(MOOS-paREST)
 
 ##############################################################################
 #                           END of CMakeLists.txt
