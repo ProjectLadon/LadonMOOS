@@ -13,3 +13,6 @@
 [submodule "src/MOOS-pMixAmp"]
 	path = src/MOOS-pMixAmp
 	url = https://github.com/ProjectLadon/MOOS-pMixAmp.git
+[submodule "src/MOOS-pBBBLue"]
+	path = src/MOOS-pBBBLue
+	url = https://github.com/ProjectLadon/MOOS-pBBBLue.git
