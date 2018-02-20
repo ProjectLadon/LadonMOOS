@@ -46,12 +46,12 @@ class moosbool {
             return false;
         };
 
-        void setThreshold(const double &t) {val = t};
-        void setTruthVals(const std::vector<std::string> &t) {truth = t};
+        void setThreshold(const double &t) {threshold = t;};
+        void setTruthVals(const std::vector<std::string> &t) {truth = t;};
     private:
         moosbool() {};
         ~moosbool() {};
-        threshold = 0.5;
+        double threshold = 0.5;
         std::vector<std::string> truth {"on", "On", "ON", "t", "T", "true", "True", "TRUE"};
 
 

@@ -15,7 +15,8 @@ INCLUDE_DIRECTORIES(${LOCAL_LIBRARY_DIRS})
 # Figure out whether we're on a Beaglebone BBBlue
 #============================================================================
 
-find_file(BBLUE_HEADER roboticscape.h)
+find_file(BBBLUE_HEADER roboticscape.h)
+message(STATUS, ${BBBLUE_HEADER})
 
 #============================================================================
 # List the subdirectories to build...
@@ -26,8 +27,8 @@ ADD_SUBDIRECTORY(MOOS-pMixAmp)
 ADD_SUBDIRECTORY(MOOS-pMux)d
 ADD_SUBDIRECTORY(MOOS-paREST)
 ADD_SUBDIRECTORY(MOOS-pAIOrest)
-if(EXISTS ${BBBlue_HEADER})
-    ADD_SUBDIRECTORY(MOOS-pBBBlue)
+if(EXISTS ${BBBLUE_HEADER})
+	ADD_SUBDIRECTORY(MOOS-pBBBLue)
 endif()
 
 ##############################################################################
