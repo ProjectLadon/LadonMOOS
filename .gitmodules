@@ -16,3 +16,6 @@
 [submodule "src/MOOS-pBBBLue"]
 	path = src/MOOS-pBBBLue
 	url = https://github.com/ProjectLadon/MOOS-pBBBLue.git
+[submodule "src/MOOS-pAIOrest"]
+	path = src/MOOS-pAIOrest
+	url = https://github.com/ProjectLadon/MOOS-pAIOrest.git
