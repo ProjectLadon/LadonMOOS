@@ -19,3 +19,6 @@
 [submodule "src/MOOS-pAIOrest"]
 	path = src/MOOS-pAIOrest
 	url = https://github.com/ProjectLadon/MOOS-pAIOrest.git
+[submodule "src/MOOS-pWingSailor"]
+	path = src/MOOS-pWingSailor
+	url = https://github.com/logos-electromechanical/MOOS-pWingSailor
