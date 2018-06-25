@@ -1,0 +1,53 @@
+//------------------------------------
+// NAME: Pierce Nichols, Ladon Project
+// FILE: basic_rc.moos
+//------------------------------------
+
+ServerHost	= localhost
+ServerPort 	= 9000
+Community	= basic_rc
+MOOSTimeWarp 	= 1
+
+//------------------------------------
+// Antler Configuration block
+ProcessConfig = ANTLER
+{
+	MSBetweenLaunches = 200
+
+	Run = MOOSDB	@ NewConsole = true
+	Run = pSBUS	@ NewConsole = true
+	Run = pMixAmp	@ NewConsole = false
+	Run = uXMS	@ NewConsole = true
+}
+
+//------------------------------------
+// pSBUS Configuration bloc
+ProcessConfig = pSBUS
+{
+	
+	AppTick = 20
+	CommsTick = 5
+	
+	SBUS_Port 	= /dev/ttyO5
+	SBUS_MaxValue 	= 1811
+	SBUS_MinValue 	= 171
+}
+
+ 
+//------------------------------------
+// pMixAmp Configuration block
+ProcessConfig = pMixAmp
+{
+	AppTick = 1
+	CommsTick = 10
+
+	mixer = {"inputs":[{"name":"SBUS_Ch1_SCALED"},{"name":"SBUS_Ch4_SCALED"}], "output": {"name":"foresail_cmd", "gain":90.0}}
+	mixer = {"inputs":[{"name":"SBUS_Ch1_SCALED"},{"name":"SBUS_Ch4_SCALED", "gain":-1.0}], "output": {"name":"mizzen_cmd", "gain":90.0}}
+}
+
+//-------------------------------------
+// uXMS Configuration block
+ProcessConfig = uXMS
+{
+	var = SBUS_Ch1_SCALED, SBUS_Ch4_SCALED
+}
