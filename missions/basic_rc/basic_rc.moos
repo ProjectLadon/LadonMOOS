@@ -16,8 +16,9 @@ ProcessConfig = ANTLER
 
 	Run = MOOSDB	@ NewConsole = true
 	Run = pSBUS	@ NewConsole = true
-	Run = pMixAmp	@ NewConsole = false
+	Run = pMixAmp	@ NewConsole = true
 	Run = uXMS	@ NewConsole = true
+	Run = paREST	@ NewConsole = false ~ForeWing
 }
 
 //------------------------------------
@@ -49,5 +50,17 @@ ProcessConfig = pMixAmp
 // uXMS Configuration block
 ProcessConfig = uXMS
 {
-	var = SBUS_Ch1_SCALED, SBUS_Ch4_SCALED
+	var = SBUS_Ch1_SCALED, SBUS_Ch4_SCALED, mizzen_cmd, foresail_cmd
+}
+
+//-------------------------------------
+// Forward wing configuration block
+ProcessConfig = ForeWing
+{
+	AppTick = 10
+	CommsTick = 10
+
+	interface = {"interfaceType":"network", "url":"http://192.168.0.90"}
+	function = {"function":"function", "name":"sail", "parameters":[{"name":"","inputVariable":"foresail_cmd","inputVariableType":"DOUBLE"}]}
+	variable = {"function":"variable", "name":"heading", "variableType":"DOUBLE", "variable":"foresail_heading"
 }
