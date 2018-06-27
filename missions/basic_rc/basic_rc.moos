@@ -15,10 +15,11 @@ ProcessConfig = ANTLER
 	MSBetweenLaunches = 200
 
 	Run = MOOSDB	@ NewConsole = true
-	Run = pSBUS	@ NewConsole = true
+	Run = pSBUS		@ NewConsole = true
 	Run = pMixAmp	@ NewConsole = true
-	Run = uXMS	@ NewConsole = true
-	Run = paREST	@ NewConsole = false ~ForeWing
+	Run = uXMS		@ NewConsole = true
+	Run = paREST	@ NewConsole = true ~ForeWing
+	Run = paREST	@ NewConsole = true ~AftWing
 }
 
 //------------------------------------
@@ -57,10 +58,26 @@ ProcessConfig = uXMS
 // Forward wing configuration block
 ProcessConfig = ForeWing
 {
-	AppTick = 10
-	CommsTick = 10
+	AppTick = 1
+	CommsTick = 1
 
-	interface = {"interfaceType":"network", "url":"http://192.168.0.90"}
-	function = {"function":"function", "name":"sail", "parameters":[{"name":"","inputVariable":"foresail_cmd","inputVariableType":"DOUBLE"}]}
-	variable = {"function":"variable", "name":"heading", "variableType":"DOUBLE", "variable":"foresail_heading"
+	interface = {"interfaceType":"network", "url":"http:\/\/192.168.0.90"}
+	function = {"function":"function", "name":"sail", "parameters":[{"name":"foretailcmd","inputVariable":"foresail_cmd","inputVariableType":"DOUBLE"}]}
+	variable = {"function":"variable", "name":"heading", "variableType":"DOUBLE", "variable":"foresail_heading"}
+	functionPollPeriod = 1
+	variablePollPeriod = 1
+}
+
+//-------------------------------------
+// Mizzen wing configuration block
+ProcessConfig = AftWing
+{
+	AppTick = 1
+	CommsTick = 1
+
+	interface = {"interfaceType":"network", "url":"http:\/\/192.168.0.91"}
+	function = {"function":"function", "name":"sail", "parameters":[{"name":"afttailcmd","inputVariable":"mizzen_cmd","inputVariableType":"DOUBLE"}]}
+	variable = {"function":"variable", "name":"heading", "variableType":"DOUBLE", "variable":"mizzen_heading"}
+	functionPollPeriod = 1
+	variablePollPeriod = 1
 }
