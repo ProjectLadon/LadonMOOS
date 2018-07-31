@@ -22,3 +22,15 @@
 [submodule "src/MOOS-pWingSailor"]
 	path = src/MOOS-pWingSailor
 	url = https://github.com/logos-electromechanical/MOOS-pWingSailor
+[submodule "src/MOOS-pSimSail"]
+	path = src/MOOS-pSimSail
+	url = https://github.com/ProjectLadon/MOOS-pSimSail.git
+[submodule "src/MOOS-pGeodesy"]
+	path = src/MOOS-pGeodesy
+	url = https://github.com/ProjectLadon/MOOS-pGeodesy.git
+[submodule "src/MOOS-uReflector"]
+	path = src/MOOS-uReflector
+	url = https://github.com/ProjectLadon/MOOS-uReflector.git
+[submodule "include/cppcodec"]
+	path = include/cppcodec
+	url = https://github.com/tplgy/cppcodec.git

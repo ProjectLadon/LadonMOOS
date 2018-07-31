@@ -15,3 +15,5 @@ bin/pSBUS
 bin/pBBBlue
 bin/pAIOrest
 bin/pWingSailor
+bin/pGeodesy
+bin/uReflector
