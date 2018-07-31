@@ -17,3 +17,6 @@ bin/pAIOrest
 bin/pWingSailor
 bin/pGeodesy
 bin/uReflector
+missions/*/MOOSLog*
+missions/*/nohup.out
+missions/*/.Last*
