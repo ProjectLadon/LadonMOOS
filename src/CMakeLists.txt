@@ -29,7 +29,7 @@ ADD_SUBDIRECTORY(MOOS-paREST)
 ADD_SUBDIRECTORY(MOOS-pAIOrest)
 ADD_SUBDIRECTORY(MOOS-pWingSailor)
 if(EXISTS ${BBBLUE_HEADER})
-	#ADD_SUBDIRECTORY(MOOS-pBBBLue)
+	ADD_SUBDIRECTORY(MOOS-pBBBLue)
 endif()
 
 ##############################################################################

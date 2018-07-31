@@ -20,6 +20,8 @@ ProcessConfig = ANTLER
 	Run = uXMS		@ NewConsole = true
 	Run = paREST	@ NewConsole = true ~ForeWing
 	Run = paREST	@ NewConsole = true ~AftWing
+	Run = pGPSd	@ NewConsole = false
+	Run = pLogger	@ NewConsole = false
 }
 
 //------------------------------------
@@ -40,11 +42,11 @@ ProcessConfig = pSBUS
 // pMixAmp Configuration block
 ProcessConfig = pMixAmp
 {
-	AppTick = 1
+	AppTick = 10
 	CommsTick = 10
 
-	mixer = {"inputs":[{"name":"SBUS_Ch1_SCALED"},{"name":"SBUS_Ch4_SCALED"}], "output": {"name":"foresail_cmd", "gain":90.0}}
-	mixer = {"inputs":[{"name":"SBUS_Ch1_SCALED"},{"name":"SBUS_Ch4_SCALED", "gain":-1.0}], "output": {"name":"mizzen_cmd", "gain":90.0}}
+	mixer = {"inputs":[{"name":"SBUS_Ch1_SCALED"},{"name":"SBUS_Ch4_SCALED"}], "output": {"name":"foresail_cmd", "gain":30.0}}
+	mixer = {"inputs":[{"name":"SBUS_Ch1_SCALED"},{"name":"SBUS_Ch4_SCALED", "gain":-1.0}], "output": {"name":"mizzen_cmd", "gain":30.0}}
 }
 
 //-------------------------------------
@@ -52,14 +54,15 @@ ProcessConfig = pMixAmp
 ProcessConfig = uXMS
 {
 	var = SBUS_Ch1_SCALED, SBUS_Ch4_SCALED, mizzen_cmd, foresail_cmd
+	var = GPSD_mode, GPSD_latitude, GPSD_longitude, GPSD_speed, GPSD_track
 }
 
 //-------------------------------------
 // Forward wing configuration block
 ProcessConfig = ForeWing
 {
-	AppTick = 1
-	CommsTick = 1
+	AppTick = 10
+	CommsTick = 10
 
 	interface = {"interfaceType":"network", "url":"http:\/\/192.168.0.90"}
 	function = {"function":"function", "name":"sail", "parameters":[{"name":"foretailcmd","inputVariable":"foresail_cmd","inputVariableType":"DOUBLE"}]}
@@ -72,12 +75,37 @@ ProcessConfig = ForeWing
 // Mizzen wing configuration block
 ProcessConfig = AftWing
 {
-	AppTick = 1
-	CommsTick = 1
+	AppTick = 10
+	CommsTick = 10
 
 	interface = {"interfaceType":"network", "url":"http:\/\/192.168.0.91"}
 	function = {"function":"function", "name":"sail", "parameters":[{"name":"afttailcmd","inputVariable":"mizzen_cmd","inputVariableType":"DOUBLE"}]}
 	variable = {"function":"variable", "name":"heading", "variableType":"DOUBLE", "variable":"mizzen_heading"}
 	functionPollPeriod = 1
 	variablePollPeriod = 1
+}
+
+ProcessConfig = pGPSd
+{
+	AppTick = 5
+	CommsTick = 5
+}
+
+ProcessConfig = pLogger
+{
+	AppTick = 20
+	CommsTick = 20
+	SyncLog = true @ 0.2
+	AsyncLog = true
+	Log = SBUS_Ch1_SCALED @ 0
+	Log = SBUS_Ch4_SCALED @ 0
+	Log = SBUS_BadFrames @ 0
+	Log = SBUS_Failsafe @ 0
+	Log = GPSD_mode @ 0
+	Log = GPSD_latitude @ 0
+	Log = GPSD_longitude @ 0
+	Log = GPSD_speed @ 0
+	Log = GPSD_track @ 0
+	Log = mizzen_cmd @ 0
+	Log = foresail_cmd @ 0
 }
