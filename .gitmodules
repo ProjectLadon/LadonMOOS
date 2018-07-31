@@ -28,3 +28,9 @@
 [submodule "src/MOOS-pGeodesy"]
 	path = src/MOOS-pGeodesy
 	url = https://github.com/ProjectLadon/MOOS-pGeodesy.git
+[submodule "src/MOOS-uReflector"]
+	path = src/MOOS-uReflector
+	url = https://github.com/ProjectLadon/MOOS-uReflector.git
+[submodule "include/cppcodec"]
+	path = include/cppcodec
+	url = https://github.com/tplgy/cppcodec.git
