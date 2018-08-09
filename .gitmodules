@@ -34,3 +34,6 @@
 [submodule "include/cppcodec"]
 	path = include/cppcodec
 	url = https://github.com/tplgy/cppcodec.git
+[submodule "src/MOOS-iCAN"]
+	path = src/MOOS-iCAN
+	url = https://github.com/ProjectLadon/MOOS-iCAN.git

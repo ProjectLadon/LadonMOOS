@@ -32,6 +32,7 @@ ADD_SUBDIRECTORY(MOOS-pGeodesy)
 ADD_SUBDIRECTORY(MOOS-uReflector)
 if(EXISTS ${BBBLUE_HEADER})
 	ADD_SUBDIRECTORY(MOOS-pBBBLue)
+	ADD_SUBDIRECTORY(MOOS-iCAN)
 endif()
 
 ##############################################################################
