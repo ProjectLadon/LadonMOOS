@@ -1,0 +1,33 @@
+//------------------------------------
+// NAME: Pierce Nichols, Ladon Project
+// FILE: basic_rc.moos
+//------------------------------------
+
+ServerHost	= localhost
+ServerPort 	= 9000
+Community	= basic_rc
+MOOSTimeWarp 	= 1
+
+//------------------------------------
+// Antler Configuration block
+ProcessConfig = ANTLER
+{
+	MSBetweenLaunches = 200
+
+	Run = paREST	@ NewConsole = false ~ForeWing
+	Run = paREST	@ NewConsole = false ~AftWing
+}
+
+//-------------------------------------
+// Forward wing configuration block
+ProcessConfig = ForeWing
+{
+	AppTick = 10
+	CommsTick = 10
+
+	interface = {"interfaceType":"network", "url":"http:\/\/192.168.0.90"}
+	function = {"function":"function", "name":"sail", "parameters":[{"name":"foretailcmd","inputVariable":"foresail_cmd","inputVariableType":"DOUBLE"}]}
+	variable = {"function":"variable", "name":"heading", "variableType":"DOUBLE", "variable":"foresail_heading"}
+	functionPollPeriod = 1
+	variablePollPeriod = 1
+}
