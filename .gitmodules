@@ -37,3 +37,6 @@
 [submodule "src/MOOS-iCAN"]
 	path = src/MOOS-iCAN
 	url = https://github.com/ProjectLadon/MOOS-iCAN.git
+[submodule "src/MOOS-pStartLogic"]
+	path = src/MOOS-pStartLogic
+	url = https://github.com/ProjectLadon/MOOS-pStartLogic.git
