@@ -1,0 +1,81 @@
+//------------------------------------
+// NAME: Pierce Nichols, Ladon Project
+// FILE: basic_rc.moos
+//------------------------------------
+
+ServerHost	= localhost
+ServerPort 	= 9000
+Community	= basic_rc
+MOOSTimeWarp 	= 1
+
+//------------------------------------
+// Antler Configuration block
+ProcessConfig = ANTLER
+{
+	MSBetweenLaunches = 200
+
+	Run = MOOSDB	@ NewConsole = false
+	Run = pSBUS	@ NewConsole = false
+	Run = pMixAmp	@ NewConsole = false
+	Run = pGPSd	@ NewConsole = false
+	Run = pLogger	@ NewConsole = false
+    Run = MOOS_ROS_BRIDGE  @ NewConsole = false
+}
+
+ProcessConfig = MOOS_ROS_BRIDGE
+{
+  AppTick    = 1
+  CommsTick  = 20
+}
+
+//------------------------------------
+// pSBUS Configuration bloc
+ProcessConfig = pSBUS
+{
+
+	AppTick = 20
+	CommsTick = 5
+
+	SBUS_Port 	= /dev/ttyO5
+	SBUS_MaxValue 	= 1811
+	SBUS_MinValue 	= 171
+}
+
+
+//------------------------------------
+// pMixAmp Configuration block
+ProcessConfig = pMixAmp
+{
+	AppTick = 10
+	CommsTick = 10
+
+	mixer = {"inputs":[{"name":"SBUS_Ch1_SCALED"},{"name":"SBUS_Ch4_SCALED"}], "output": {"name":"foresail_cmd", "gain":30.0}}
+	mixer = {"inputs":[{"name":"SBUS_Ch1_SCALED"},{"name":"SBUS_Ch4_SCALED", "gain":-1.0}], "output": {"name":"mizzen_cmd", "gain":30.0}}
+}
+
+ProcessConfig = pGPSd
+{
+	AppTick = 5
+	CommsTick = 5
+}
+
+ProcessConfig = pLogger
+{
+	AppTick = 20
+	CommsTick = 20
+	SyncLog = true @ 0.2
+	AsyncLog = true
+	Log = SBUS_Ch1_SCALED @ 0
+	Log = SBUS_Ch4_SCALED @ 0
+	Log = SBUS_BadFrames @ 0
+	Log = SBUS_Failsafe @ 0
+	Log = GPSD_mode @ 0
+	Log = GPSD_latitude @ 0
+	Log = GPSD_longitude @ 0
+	Log = GPSD_speed @ 0
+	Log = GPSD_track @ 0
+	Log = mizzen_cmd @ 0
+	Log = foresail_cmd @ 0
+	Log = forewing_heading @ 0
+	Log = mizzen_heading @ 0
+}
