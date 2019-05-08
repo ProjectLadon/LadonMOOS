@@ -2,13 +2,14 @@
 
     <node   pkg="moos-ros-bridge"
             type="Bridge"
-            name="Bridge"
-            args="$(BASIC_RC_DIR)/basic_rc_ros_config.xml $(BASIC_RC_DIR)/basic_rc_headless.moos"
+            name="moos_bridge"
+            args="$(env BASIC_RC_DIR)/basic_rc_ros_config.xml $(env BASIC_RC_DIR)/basic_rc_headless.moos"
             respawn="true"
             output="log" />
 
     <node   pkg="rosserial_server"
             type="socket_node"
+            respawn="true"
             name="rosserial_server" />
 
 </launch>

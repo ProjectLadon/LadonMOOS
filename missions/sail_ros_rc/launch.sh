@@ -2,6 +2,7 @@
 
 set -x
 
-export BASIC_RC_DIR = `exec pwd`
+export BASIC_RC_DIR=`exec pwd`
 source ~/catkin_ws/devel/setup.bash
-roslaunch basic_rc_headless.launch 
+pAntler basic_rc_headless.moos &
+roslaunch basic_rc_headless.launch  &
