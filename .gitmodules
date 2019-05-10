@@ -4,9 +4,6 @@
 [submodule "src/MOOS-pSBUS"]
 	path = src/MOOS-pSBUS
 	url = https://github.com/ProjectLadon/MOOS-pSBUS.git
-[submodule "src/MOOS-paREST"]
-	path = src/MOOS-paREST
-	url = https://github.com/ProjectLadon/MOOS-paREST.git
 [submodule "src/MOOS-pMux"]
 	path = src/MOOS-pMux
 	url = https://github.com/ProjectLadon/MOOS-pMux.git
@@ -16,9 +13,6 @@
 [submodule "src/MOOS-pBBBLue"]
 	path = src/MOOS-pBBBLue
 	url = https://github.com/ProjectLadon/MOOS-pBBBLue.git
-[submodule "src/MOOS-pAIOrest"]
-	path = src/MOOS-pAIOrest
-	url = https://github.com/ProjectLadon/MOOS-pAIOrest.git
 [submodule "src/MOOS-pWingSailor"]
 	path = src/MOOS-pWingSailor
 	url = https://github.com/logos-electromechanical/MOOS-pWingSailor
@@ -34,9 +28,6 @@
 [submodule "include/cppcodec"]
 	path = include/cppcodec
 	url = https://github.com/tplgy/cppcodec.git
-[submodule "src/MOOS-iCAN"]
-	path = src/MOOS-iCAN
-	url = https://github.com/ProjectLadon/MOOS-iCAN.git
 [submodule "src/MOOS-pStartLogic"]
 	path = src/MOOS-pStartLogic
 	url = https://github.com/ProjectLadon/MOOS-pStartLogic.git
