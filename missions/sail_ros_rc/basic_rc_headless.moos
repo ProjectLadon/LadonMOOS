@@ -15,11 +15,12 @@ ProcessConfig = ANTLER
 	MSBetweenLaunches = 200
 
 	Run = MOOSDB	@ NewConsole = false
-	Run = pSBUS	@ NewConsole = false
-	Run = pMixAmp	@ NewConsole = false
-	Run = pGPSd	@ NewConsole = false
-	Run = pLogger	@ NewConsole = false
-    Run = MOOS_ROS_BRIDGE  @ NewConsole = false
+	Run = pSBUS	@ NewConsole = true
+	Run = pMixAmp	@ NewConsole = true
+	Run = pGPSd	@ NewConsole = true
+	Run = pLogger	@ NewConsole = true
+	Run = MOOS_ROS_BRIDGE  @ NewConsole = false
+	Run = pBBBlue @ NewConsole = true
 }
 
 ProcessConfig = MOOS_ROS_BRIDGE
@@ -78,4 +79,13 @@ ProcessConfig = pLogger
 	Log = foresail_cmd @ 0
 	Log = forewing_heading @ 0
 	Log = mizzen_heading @ 0
+}
+
+//-------------------------------------
+// pBBBlue Configuration block
+ProcessConfig = pBBBlue
+{
+    AppTick   = 10
+    CommsTick = 10
+    conf = {"IMU":{"mode":"DMP", "magnetometer":true, "dmpSampleRate":200, "orientation": "Z_UP", "dmpCompassTimeConstant":5.0}}
 }

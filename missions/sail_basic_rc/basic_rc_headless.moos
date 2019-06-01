@@ -17,8 +17,8 @@ ProcessConfig = ANTLER
 	Run = MOOSDB	@ NewConsole = false
 	Run = pSBUS	@ NewConsole = false
 	Run = pMixAmp	@ NewConsole = false
-	Run = paREST	@ NewConsole = false ~ForeWing
-	Run = paREST	@ NewConsole = false ~AftWing
+	//Run = paREST	@ NewConsole = false ~ForeWing
+	//Run = paREST	@ NewConsole = false ~AftWing
 	Run = pGPSd	@ NewConsole = false
 	Run = pLogger	@ NewConsole = false
 }
@@ -27,16 +27,16 @@ ProcessConfig = ANTLER
 // pSBUS Configuration bloc
 ProcessConfig = pSBUS
 {
-	
+
 	AppTick = 20
 	CommsTick = 5
-	
+
 	SBUS_Port 	= /dev/ttyO5
 	SBUS_MaxValue 	= 1811
 	SBUS_MinValue 	= 171
 }
 
- 
+
 //------------------------------------
 // pMixAmp Configuration block
 ProcessConfig = pMixAmp
