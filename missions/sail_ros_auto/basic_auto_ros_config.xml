@@ -1,0 +1,51 @@
+<moosrosconfig>
+
+    <message>
+        <moosname>ForeWingHeading</moosname>
+        <rosname>/foresail/heading</rosname>
+        <moostype>Double</moostype>
+        <rostype>std_msgs/Float32</rostype>
+        <direction>toMOOS</direction>
+    </message>
+
+    <message>
+        <moosname>MizzenWingHeading</moosname>
+        <rosname>/mizzen/heading</rosname>
+        <moostype>Double</moostype>
+        <rostype>std_msgs/Float32</rostype>
+        <direction>toMOOS</direction>
+    </message>
+
+    <message>
+        <moosname>ForeWingTail</moosname>
+        <rosname>/foresail/tail</rosname>
+        <moostype>Double</moostype>
+        <rostype>std_msgs/Float32</rostype>
+        <direction>toMOOS</direction>
+    </message>
+
+    <message>
+        <moosname>MizzenWingTail</moosname>
+        <rosname>/mizzen/tail</rosname>
+        <moostype>Double</moostype>
+        <rostype>std_msgs/Float32</rostype>
+        <direction>toMOOS</direction>
+    </message>
+
+    <message>
+        <moosname>foresail_cmd</moosname>
+        <rosname>/foresail/cmd</rosname>
+        <moostype>Double</moostype>
+        <rostype>std_msgs/Float32</rostype>
+        <direction>toROS</direction>
+    </message>
+
+    <message>
+        <moosname>mizzen_cmd</moosname>
+        <rosname>/mizzen/cmd</rosname>
+        <moostype>Double</moostype>
+        <rostype>std_msgs/Float32</rostype>
+        <direction>toROS</direction>
+    </message>
+
+</moosrosconfig>

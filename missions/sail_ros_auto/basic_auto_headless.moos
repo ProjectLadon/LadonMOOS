@@ -15,12 +15,12 @@ ProcessConfig = ANTLER
 	MSBetweenLaunches = 200
 
 	Run = MOOSDB	@ NewConsole = false
-	Run = pSBUS	@ NewConsole = false
-	Run = pMixAmp	@ NewConsole = false
-	Run = pGPSd	@ NewConsole = false
-	Run = pLogger	@ NewConsole = false
+	Run = pGPSd	@ NewConsole = true
+	Run = pLogger	@ NewConsole = true
 	Run = MOOS_ROS_BRIDGE  @ NewConsole = false
-	Run = pBBBlue @ NewConsole = false
+	Run = pHelmIvP        @ NewConsole = true
+	Run = pBBBlue @ NewConsole = true
+	Run = pWingSailor @ NewConsole = true
 }
 
 ProcessConfig = MOOS_ROS_BRIDGE
@@ -30,18 +30,31 @@ ProcessConfig = MOOS_ROS_BRIDGE
 }
 
 //------------------------------------
-// pSBUS Configuration bloc
-ProcessConfig = pSBUS
+// pWingSailor Configuration block
+ProcessConfig = pWingSailor
 {
-
-	AppTick = 20
-	CommsTick = 5
-
-	SBUS_Port 	= /dev/ttyO5
-	SBUS_MaxValue 	= 1811
-	SBUS_MinValue 	= 171
+	AppTick = 10
+	CommsTick = 10
+	FORESAIL = config/foresail.json
+	MIZZEN = config/mizzen.json
+	BOATCONFIG = config/pathfinder_boat.json
+	WINDROSE = config/pathfinder_windrose.json
 }
 
+//------------------------------------------
+// pHelmIvP config block
+
+ProcessConfig = pHelmIvP
+{
+  AppTick    = 4
+  CommsTick  = 4
+
+  bhv_dir_not_found_ok = true
+
+  behaviors  = behaviors/alpha.bhv
+  domain     = course:0:359:360
+  domain     = speed:0:4:41
+}
 
 //------------------------------------
 // pMixAmp Configuration block
@@ -50,8 +63,8 @@ ProcessConfig = pMixAmp
 	AppTick = 10
 	CommsTick = 10
 
-	mixer = {"inputs":[{"name":"SBUS_Ch1_SCALED"},{"name":"SBUS_Ch4_SCALED"}], "output": {"name":"foresail_cmd", "gain":45.0}}
-	mixer = {"inputs":[{"name":"SBUS_Ch1_SCALED"},{"name":"SBUS_Ch4_SCALED", "gain":-1.0}], "output": {"name":"mizzen_cmd", "gain":45.0}}
+	mixer = {"inputs":[{"name":"SBUS_Ch1_SCALED"},{"name":"SBUS_Ch4_SCALED"}], "output": {"name":"foresail_cmd", "gain":30.0}}
+	mixer = {"inputs":[{"name":"SBUS_Ch1_SCALED"},{"name":"SBUS_Ch4_SCALED", "gain":-1.0}], "output": {"name":"mizzen_cmd", "gain":30.0}}
 }
 
 ProcessConfig = pGPSd
