@@ -19,6 +19,7 @@ bin/pGeodesy
 bin/uReflector
 bin/iCAN
 bin/pStartLogic
+bin/pSimSail
 bin/*Test
 missions/*/MOOSLog*
 missions/*/nohup.out
