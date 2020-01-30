@@ -1,0 +1,15 @@
+module      = pMux
+type        = MOOS App
+author      = Pierce Nichols
+contact     = pierce@logos-electro.com
+org         = Project Ladon
+thumb       = A library to mux inputs
+depends     = rapidjson
+group       = Project Ladon
+borndate    = 251017
+doc_url     = https://github.com/ProjectLadon/MOOS-pMux/blob/master/README.md
+license     = LGPL v3
+
+synopsis    = Takes two inputs (any type, but they must match), and outputs one
+    or the other depending on whether a third message has a value above a given
+    threshold.

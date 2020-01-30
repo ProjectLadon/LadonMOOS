@@ -1,0 +1,15 @@
+module      = pGeodesy
+type        = MOOS App
+author      = Pierce Nichols
+contact     = pierce@logos-electro.com
+org         = Project Ladon
+thumb       = A library to wrap libMOOSGeodesy for long distance trips
+depends     = libMOOSGeodesy, rapidjson
+group       = Project Ladon
+borndate    = 070518
+doc_url     = https://github.com/ProjectLadon/MOOS-pGeodesy/blob/master/README.md
+license     = LGPL v3
+
+synopsis    = A module to wrap libMOOSGeodesy with the provision for re-basing
+    the local coordinate system to a new zero periodically or on a trigger. This
+    is for the benefit of very long distance missions, such as ocean crossings.

@@ -1,0 +1,17 @@
+module      = pGPSd
+type        = MOOS App
+author      = Pierce Nichols
+contact     = pierce@logos-electro.com
+org         = Project Ladon
+thumb       = A library to wrap a gpsd client
+depends     = libgpsmm, libgeographic
+group       = Project Ladon
+borndate    = 111017
+doc_url     = https://github.com/ProjectLadon/MOOS-pGPSd/blob/master/README.md
+license     = LGPL v3
+
+synopsis    = pGPSd allows a MOOS community to use a gpsd server as a source of
+    position,  speed, and course over ground data. It can also forward parsed
+    packets from both GPS and AIS receivers to the MOOS community for further
+    processing. In the future, this package may parse AIS messages into contact
+    reports. 

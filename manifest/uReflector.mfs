@@ -1,0 +1,16 @@
+module      = uReflector
+type        = MOOS App
+author      = Pierce Nichols
+contact     = pierce@logos-electro.com
+org         = Project Ladon
+thumb       = A simple reflector service
+depends     = rapidjson, libcurl, cppcodec
+group       = Project Ladon
+borndate    = 220618
+doc_url     = https://github.com/ProjectLadon/MOOS-uReflector/blob/master/README.md
+license     = LGPL v3
+
+synopsis = This is a reflects variables between two different MOOS communities
+    using a simple web service running inside a Docker container. The web service
+    is a simple application written in Flask, and is therefore not terribly
+    secure.

@@ -1,0 +1,15 @@
+module      = pStartLogic
+type        = MOOS App
+author      = Pierce Nichols
+contact     = pierce@logos-electro.com
+org         = Project Ladon
+thumb       = A start/stop logic processor
+depends     = rapidjson, libcurl, cppcodec
+group       = Project Ladon
+borndate    = 211018
+doc_url     = https://github.com/ProjectLadon/MOOS-pStartLogic/blob/master/README.md
+license     = LGPL v3
+
+synopsis = This module provides an start/emergency stop signal interface that
+    activates and deactivates propulsion. It also optionally provides a warning
+    signal to drive a horn or similar warning device.

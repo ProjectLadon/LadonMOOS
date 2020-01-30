@@ -1,0 +1,18 @@
+module      = pSBUS
+type        = MOOS App
+author      = Pierce Nichols
+contact     = pierce@logos-electro.com
+org         = Project Ladon
+thumb       = An SBUS interface
+depends     = rapidjson
+group       = Project Ladon
+borndate    = 111017
+doc_url     = https://github.com/ProjectLadon/MOOS-pSBUS/blob/master/README.md
+license     = LGPL v3
+
+synopsis = This is a connector between an S.BUS input (as from a remote control)
+    and MOOS. This code is based on https://github.com/zendes/SBUS and
+    https://os.mbed.com/users/Digixx/notebook/futaba-s-bus-controlled-by-mbed/.
+    It is designed to run on a Beaglebone Blue, but it should work on any Linux
+    machine with at least one TTL serial input. It has only been tested with
+    the Beaglebone Blue, however.

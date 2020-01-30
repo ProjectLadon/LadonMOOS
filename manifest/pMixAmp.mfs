@@ -1,0 +1,17 @@
+module      = pMixAmp
+type        = MOOS App
+author      = Pierce Nichols
+contact     = pierce@logos-electro.com
+org         = Project Ladon
+thumb       = A library to scale and mix inputs
+depends     = rapidjson
+group       = Project Ladon
+borndate    = 070518
+doc_url     = https://github.com/ProjectLadon/MOOS-pMixAmp/blob/master/README.md
+license     = LGPL v3
+
+synopsis    = This module is designed to amplify and mix one or more numeric
+    messages and output the result. It takes one or more inputs and applies an
+    (optional) offset and gain to each one. It them sums the results, applies an
+    (optional) offset and gain, and outputs the result. If more than one block 
+    is required, spawn one for each output.
