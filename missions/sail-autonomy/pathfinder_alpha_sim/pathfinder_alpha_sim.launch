@@ -1,0 +1,16 @@
+<launch>
+    <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch" />
+
+    <node   pkg="moos-ros-bridge"
+            type="Bridge"
+            name="moos_bridge"
+            args="$(env PATHFINDER_SIM_DIR)/alpha_bridge.xml $(env PATHFINDER_SIM_DIR)/pathfinder_alpha_sim.moos"
+            respawn="true"
+            output="log" />
+
+    <node   pkg="rosserial_server"
+            type="socket_node"
+            respawn="true"
+            name="rosserial_server" />
+
+</launch>

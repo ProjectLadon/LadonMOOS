@@ -1,0 +1,83 @@
+<moosrosconfig>
+
+    <message>
+        <moosname>WINGSAILOR_Estimated_Wind</moosname>
+        <rosname>/wingsailor/wind_estimate</rosname>
+        <moostype>Double</moostype>
+        <rostype>std_msgs/Float32</rostype>
+        <direction>toROS</direction>
+    </message>
+
+
+    <message>
+        <moosname>WINGSAILOR_OnTack_Target_Heading</moosname>
+        <rosname>/wingsailor/tack_target_heading</rosname>
+        <moostype>Double</moostype>
+        <rostype>std_msgs/Float32</rostype>
+        <direction>toROS</direction>
+    </message>
+
+
+    <message>
+        <moosname>WINGSAILOR_Nav_Target_Heading</moosname>
+        <rosname>/wingsailor/nav_target_heading</rosname>
+        <moostype>Double</moostype>
+        <rostype>std_msgs/Float32</rostype>
+        <direction>toROS</direction>
+    </message>
+
+
+    <message>
+        <moosname>WINGSAILOR_Current_Tack</moosname>
+        <rosname>/wingsailor/current_tack</rosname>
+        <moostype>Double</moostype>
+        <rostype>std_msgs/Float32</rostype>
+        <direction>toROS</direction>
+    </message>
+
+
+    <message>
+        <moosname>WINGSAILOR_Heading_Error</moosname>
+        <rosname>/wingsailor/heading_error</rosname>
+        <moostype>Double</moostype>
+        <rostype>std_msgs/Float32</rostype>
+        <direction>toROS</direction>
+    </message>
+
+
+    <message>
+        <moosname>WINGSAILOR_Yaw_Rate_Raw</moosname>
+        <rosname>/wingsailor/yaw_rate</rosname>
+        <moostype>Double</moostype>
+        <rostype>std_msgs/Float32</rostype>
+        <direction>toROS</direction>
+    </message>
+
+
+    <message>
+        <moosname>WINGSAILOR_Yaw_Rate_Filtered</moosname>
+        <rosname>/wingsailor/yaw_rate_filtered</rosname>
+        <moostype>Double</moostype>
+        <rostype>std_msgs/Float32</rostype>
+        <direction>toROS</direction>
+    </message>
+
+
+    <message>
+        <moosname>WINGSAILOR_Steering_Cmd</moosname>
+        <rosname>/wingsailor/steering</rosname>
+        <moostype>Double</moostype>
+        <rostype>std_msgs/Float32</rostype>
+        <direction>toROS</direction>
+    </message>
+
+
+    <message>
+        <moosname>WINGSAILOR_Throttle_Cmd</moosname>
+        <rosname>/wingsailor/throttle</rosname>
+        <moostype>Double</moostype>
+        <rostype>std_msgs/Float32</rostype>
+        <direction>toROS</direction>
+    </message>
+
+</moosrosconfig>
