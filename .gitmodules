@@ -31,3 +31,6 @@
 [submodule "src/MOOS-pStartLogic"]
 	path = src/MOOS-pStartLogic
 	url = https://github.com/ProjectLadon/MOOS-pStartLogic.git
+[submodule "src/waypoint_tool"]
+	path = src/waypoint_tool
+	url = https://github.com/ProjectLadon/waypoint_tool.git

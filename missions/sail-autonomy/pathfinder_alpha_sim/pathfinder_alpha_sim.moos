@@ -136,3 +136,46 @@ ProcessConfig = pWingSailor
       BOATCONFIG    = pathfinder_boat_sim.json
       WINDROSE      = pathfinder_windrose_sim.json
 }
+
+//------------------------------------------
+// pWingSailor config block
+
+ProcessConfig = pSimSail
+{
+      AppTick       = 50
+      CommsTick	    = 50
+      FORESAIL_CL
+      FORESAIL_CD
+      FORESAIL_TAIL
+      FORESAIL_AREA             = 0.25
+      FORESAIL_CG_DISTANCE      = 0.33
+      MIZZEN_CL
+      MIZZEN_CD
+      MIZZEN_TAIL
+      MIZZEN_AREA               = 0.25
+      MIZZEN_CG_DISTANCE        = 0.33
+      WATER_DRAG                = 0.025
+      INERTIA_MOMENT            = 0.454
+      MASS                      = 12.5
+      KEEL_AREA                 = 0.029
+      KEEL_CG_DISTANCE          = 0
+      SKEG_AREA                 = 0.0116
+      SKEG_CG_DISTANCE          = 0.44
+      AIR_DENSITY               = 1.225
+      WATER_DENSITY             = 1000
+      WIND_DIRECTION            = 45
+      WIND_SPEED                = 10
+      ORIGIN_LAT
+      ORIGIN_LON
+      START_X                   = 0
+      START_Y                   = 0
+      FORESAIL_TAIL_CMD         = foresail_tail_cmd
+      MIZZEN_TAIL_CMD           = mizzen_tail_cmd
+      OUTPUT_LAT_MSG            = NAV_LAT
+      OUTPUT_LON_MSG            = NAV_LON
+      FORESAIL_HDG_MSG          = foresail_hdg
+      MIZZEN_HDG_MSG            = mizzen_hdg
+      BOAT_HDG_MSG              = NAV_HEADING
+      SPEED_OVER_GND_MSG        = NAV_SPEED_OVER_GROUND
+      COURSE_OVER_GND_MSG       = NAV_HEADING_OVER_GROUND
+}
