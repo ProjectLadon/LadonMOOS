@@ -198,6 +198,6 @@ ProcessConfig = pMixAmp
 {
     AppTick   = 20
     CommsTick = 20
-    block = {"ChannelType": "DOUBLE", "True":{}, "False":{}, "Switch":{"type":"DOUBLE", "threshold":1500}, "Output":"rudder_servo"}
-    block = {"ChannelType": "DOUBLE", "True":{}, "False":{}, "Switch":{"type":"DOUBLE", "threshold":1500}, "Output":"throttle_esc"}
+    block = {"ChannelType": "DOUBLE", "True":{"var":"RC_RUDDER"}, "False":{"var":"AUTO_RUDDER"}, "Switch":{"type":"DOUBLE", "threshold":1500, "var":"SBUS_Ch5_RAW"}, "Output":"rudder_servo"}
+    block = {"ChannelType": "DOUBLE", "True":{"var":"RC_THROTTLE"}, "False":{"var":"DESIRED_THROTTLE"}, "Switch":{"type":"DOUBLE", "threshold":1500, "var":"SBUS_Ch5_RAW"}, "Output":"throttle_esc"}
 }
