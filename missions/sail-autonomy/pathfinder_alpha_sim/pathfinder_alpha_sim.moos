@@ -9,8 +9,20 @@ Community    = pathfinder_sim
 MOOSTimeWarp = 1
 
 // Forest Lake
-LatOrigin  = 43.825300
-LongOrigin = -70.330400
+// LatOrigin  = 43.825300
+// LongOrigin = -70.330400
+
+// Greenlake, short path
+LatOrigin = 47.6814898
+LongOrigin = -122.3299195
+
+// Greenlake, long path
+// LatOrigin = 47.6814898
+// LongOrigin = -122.3299195
+
+// UWYC, short path
+LatOrigin = 47.647841
+LongOrigin = -122.2990718
 
 //------------------------------------------
 // Antler configuration  block
@@ -39,7 +51,7 @@ ProcessConfig = pHelmIvP
 
     bhv_dir_not_found_ok = true
 
-    behaviors  = alpha_orig.bhv
+    behaviors  = alpha_greenlake.bhv
     domain     = course:0:359:360
     domain     = speed:0:4:41
 }
@@ -144,14 +156,14 @@ ProcessConfig = pSimSail
 {
       AppTick       = 50
       CommsTick	    = 50
-      FORESAIL_CL
-      FORESAIL_CD
-      FORESAIL_TAIL
+      FORESAIL_CL = [[-30,-0.5386],[-25,-0.5835],[-20,-0.6284],[-15,-0.6733],[-10,-0.9145],[-5,-0.7135],[0,0],[5,0.7135],[10,0.9145],[15,0.6733],[20,0.6284],[25,0.5835],[30,0.5386]]
+      FORESAIL_CD = [[-30,0.3003],[-25,0.2420],[-20,0.1837],[-15,0.1254],[-10,0.04],[-5,0.0280],[0,0.0264],[5,0.0280],[10,0.04],[15,0.1254],[20,0.1837],[25,0.2420],[30,0.3003]]
+      FORESAIL_TAIL = [[-15,-30],[-10,-20],[-5,-10],[0,0],[5,10],[10,20],[15,30]]
       FORESAIL_AREA             = 0.25
       FORESAIL_CG_DISTANCE      = 0.33
-      MIZZEN_CL
-      MIZZEN_CD
-      MIZZEN_TAIL
+      MIZZEN_CL = [[-30,-0.5386],[-25,-0.5835],[-20,-0.6284],[-15,-0.6733],[-10,-0.9145],[-5,-0.7135],[0,0],[5,0.7135],[10,0.9145],[15,0.6733],[20,0.6284],[25,0.5835],[30,0.5386]]
+      MIZZEN_CD = [[-30,0.3003],[-25,0.2420],[-20,0.1837],[-15,0.1254],[-10,0.04],[-5,0.0280],[0,0.0264],[5,0.0280],[10,0.04],[15,0.1254],[20,0.1837],[25,0.2420],[30,0.3003]]
+      MIZZEN_TAIL = [[-15,-30],[-10,-20],[-5,-10],[0,0],[5,10],[10,20],[15,30]]
       MIZZEN_AREA               = 0.25
       MIZZEN_CG_DISTANCE        = 0.33
       WATER_DRAG                = 0.025
