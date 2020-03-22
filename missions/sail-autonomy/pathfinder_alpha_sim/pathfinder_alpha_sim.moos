@@ -21,8 +21,8 @@ LongOrigin = -122.3299195
 // LongOrigin = -122.3299195
 
 // UWYC, short path
-LatOrigin = 47.647841
-LongOrigin = -122.2990718
+// LatOrigin = 47.647841
+// LongOrigin = -122.2990718
 
 //------------------------------------------
 // Antler configuration  block
@@ -32,9 +32,9 @@ ProcessConfig = ANTLER
 
     Run = MOOSDB          @ NewConsole = false
     Run = pLogger         @ NewConsole = false
-    Run = pHelmIvP        @ NewConsole = false
+    Run = pHelmIvP        @ NewConsole
     Run = pMarineViewer   @ NewConsole = false
-    Run = uProcessWatch   @ NewConsole = false
+//    Run = uProcessWatch   @ NewConsole = false
     Run = pNodeReporter   @ NewConsole = false
     Run = pGeodesy        @ NewConsole = false
     Run = pWingSailor     @ NewConsole
@@ -63,9 +63,6 @@ ProcessConfig = pMarineViewer
 {
     AppTick    = 4
     CommsTick  = 4
-
-    tiff_file            = forrest19.tif
-    //tiff_file            = MIT_SP.tif
 
     set_pan_x            = -90
     set_pan_y            = -280
@@ -143,14 +140,14 @@ ProcessConfig = pWingSailor
       AppTick       = 20
       CommsTick	    = 20
 
-      FORESAIL      = pathfinder_foresail_sim.json
-      MIZZEN        = pathfinder_mizzen_sim.json
-      BOATCONFIG    = pathfinder_boat_sim.json
-      WINDROSE      = pathfinder_windrose_sim.json
+      FORESAIL      = boat_config/pathfinder_foresail.json
+      MIZZEN        = boat_config/pathfinder_mizzen.json
+      BOATCONFIG    = boat_config/pathfinder_boat.json
+      WINDROSE      = boat_config/pathfinder_windrose.json
 }
 
 //------------------------------------------
-// pWingSailor config block
+// pSimSail config block
 
 ProcessConfig = pSimSail
 {
@@ -177,8 +174,8 @@ ProcessConfig = pSimSail
       WATER_DENSITY             = 1000
       WIND_DIRECTION            = 45
       WIND_SPEED                = 10
-      ORIGIN_LAT
-      ORIGIN_LON
+      ORIGIN_LAT                = 47.6814898
+      ORIGIN_LON                = -122.3299195
       START_X                   = 0
       START_Y                   = 0
       FORESAIL_TAIL_CMD         = foresail_tail_cmd

@@ -8,8 +8,8 @@ install_manifest.txt
 compile_commands.json
 CTestTestfile.cmake
 bin/*
-missions/*/MOOSLog*
-missions/*/nohup.out
-missions/*/.Last*
-mission/*/*.moos\+\+
+.Last*
+MOOSLog*
+nohup.out 
+*.moos\+\+
 lib/*

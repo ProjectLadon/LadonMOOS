@@ -1,0 +1,16 @@
+{
+    "position": "MIZZEN",
+    "angleSource": "mizzen_hdg",
+    "angleType": "ABSOLUTE",
+    "tailVar": "mizzen_tail_cmd",
+    "headingVar": "NAV_HEADING",
+    "AOAmap": [
+        {"tail": -15, "aoa": -30},
+        {"tail": -10, "aoa": -20},
+        {"tail": -5, "aoa": -10},
+        {"tail": 0, "aoa": 0},
+        {"tail": 5, "aoa": 10},
+        {"tail": 10, "aoa": 20},
+        {"tail": 15, "aoa": 30}
+    ]
+}

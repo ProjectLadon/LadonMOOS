@@ -1,0 +1,14 @@
+{
+    "currentHeadingSource": "NAV_HEADING",
+    "targetHeadingSource": "DESIRED_HEADING",
+    "throttleSource": "DESIRED_SPEED",
+    "yawRateSource": "",
+    "tackingHysteresis": 0.05,
+    "helmPID": {
+        "Kp": 0.1,
+        "Ki": 0.01,
+        "Kd": 0,
+        "IntegralLimit": 0.05,
+        "Direction": true
+    }
+}
