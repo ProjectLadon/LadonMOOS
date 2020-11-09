@@ -34,3 +34,6 @@
 [submodule "src/waypoint_tool"]
 	path = src/waypoint_tool
 	url = https://github.com/ProjectLadon/waypoint_tool.git
+[submodule "src/MOOS-pNavEKF"]
+	path = src/MOOS-pNavEKF
+	url = https://github.com/ProjectLadon/MOOS-pNavEKF.git

@@ -34,11 +34,25 @@ ProcessConfig = ANTLER
     Run = pLogger         @ NewConsole = false
     Run = pHelmIvP        @ NewConsole
     Run = pMarineViewer   @ NewConsole = false
-//    Run = uProcessWatch   @ NewConsole = false
+    Run = uProcessWatch   @ NewConsole = false
     Run = pNodeReporter   @ NewConsole = false
     Run = pGeodesy        @ NewConsole = false
     Run = pWingSailor     @ NewConsole
     Run = pSimSail        @ NewConsole
+}
+
+//------------------------------------------
+// uProcessWatch
+
+ProcessConfig = uProcessWatch
+{
+  AppTick   = 4
+  CommsTick = 4
+
+  watch_all = true
+	nowatch   = uPokeDB*
+	nowatch   = uXMS*
+	nowatch   = uMS*
 }
 
 //------------------------------------------
