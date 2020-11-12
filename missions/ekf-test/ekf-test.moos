@@ -1,0 +1,91 @@
+//------------------------------------
+// NAME: Pierce Nichols, Ladon Project
+// FILE: ekf-test.moos
+//------------------------------------
+
+ServerHost	= localhost
+ServerPort 	= 9000
+Community	= ekf_test
+MOOSTimeWarp 	= 1
+
+ProcessConfig = ANTLER
+{
+	MSBetweenLaunches = 200
+
+	Run = MOOSDB	@ NewConsole = false
+	Run = pGPSd		@ NewConsole = false
+	Run = pLogger	@ NewConsole = false
+    Run = pGeodesy	@ NewConsole = false
+	Run = pBBBlue	@ NewConsole = false
+	Run = pNavEKF
+}
+
+ProcessConfig = pGPSd
+{
+	AppTick = 5
+	CommsTick = 5
+}
+
+ProcessConfig = pGeodesy
+{
+      AppTick    = 20
+      CommsTick	 = 20
+
+      INPUTLAT 	= NAV_LAT
+      INPUTLON 	= NAV_LON
+      OUTPUTX 	= GPS_X
+      OUTPUTY 	= GPS_Y
+}
+
+ProcessConfig = pBBBlue
+{
+    AppTick   = 10
+    CommsTick = 10
+    conf = {"IMU":{"mode":"DMP", "magnetometer":true, "dmpSampleRate":200, "orientation": "Z_UP", "dmpCompassTimeConstant":5.0}}
+}
+
+ProcessConfig = pNavEKF
+{
+    AppTick   			= 10
+    CommsTick 			= 10
+	Input 				= GPS_X
+	Input_Type 			= X
+	Input 				= GPS_Y
+	Input_Type 			= Y
+	Input 				= GPSD_track
+	Input_Type 			= Theta
+	Input 				= BBBL_DMP_HEADING
+	Input_Type 			= Theta
+	Input 				= GPSD_speed
+	Input_Type 			= V
+	Input 				= BBBL_DMP_HEADING_RATE
+	Input_Type 			= Theta_Dot
+	Input 				= BBBL_LONG_ACCEL
+	Input_Type 			= V_Dot
+	PROCESS_NOISE		= 0.1
+	MEASUREMENT_NOISE	= 0.01
+}
+
+ProcessConfig = pLogger
+{
+	AppTick = 20
+	CommsTick = 20
+	SyncLog = true @ 0.2
+	AsyncLog = true
+	Log = GPSD_mode @ 0
+	Log = GPSD_latitude @ 0
+	Log = GPSD_longitude @ 0
+	Log = GPSD_speed @ 0
+	Log = GPSD_track @ 0
+	Log = GPS_X @ 0
+	Log = GPS_Y @ 0
+	Log = BBBL_DMP_HEADING @ 0
+	Log = BBBL_DMP_HEADING_RATE @ 0
+	Log = BBBL_LONG_ACCEL @ 0
+	Log = X_OUT @ 0
+	Log = Y_OUT @ 0
+	Log = Theta_out @ 0
+	Log = V_OUT @ 0
+	Log = Theta_dot_out @ 0
+	Log = V_dot_OUT @ 0
+}
