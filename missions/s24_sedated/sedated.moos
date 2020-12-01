@@ -194,7 +194,7 @@ ProcessConfig = pMixAmp
 //------------------------------------
 // pMux Configuration bloc
 
-ProcessConfig = pMixAmp
+ProcessConfig = pMux
 {
     AppTick   = 20
     CommsTick = 20
