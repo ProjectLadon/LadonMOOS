@@ -7,17 +7,19 @@ ServerHost	= localhost
 ServerPort 	= 9000
 Community	= ekf_test
 MOOSTimeWarp 	= 1
+LatOrigin 	= 38.91229
+LongOrigin	= -123.694797
 
 ProcessConfig = ANTLER
 {
 	MSBetweenLaunches = 200
 
-	Run = MOOSDB	@ NewConsole = false
-	Run = pGPSd		@ NewConsole = false
-	Run = pLogger	@ NewConsole = false
-    Run = pGeodesy	@ NewConsole = false
-	Run = pBBBlue	@ NewConsole = false
-	Run = pNavEKF
+	Run = MOOSDB		@ NewConsole = false
+	Run = pGPSd			@ NewConsole = false
+	Run = pLogger		@ NewConsole = false
+	Run = pGeodesy	    @ NewConsole = false
+	Run = pBBBlue		@ NewConsole = false
+	Run = pNavEKF		@ NewConsole = true
 }
 
 ProcessConfig = pGPSd
@@ -31,10 +33,11 @@ ProcessConfig = pGeodesy
       AppTick    = 20
       CommsTick	 = 20
 
-      INPUTLAT 	= NAV_LAT
-      INPUTLON 	= NAV_LON
-      OUTPUTX 	= GPS_X
-      OUTPUTY 	= GPS_Y
+      INPUTLAT 				= GPSD_LATITUDE
+      INPUTLON 				= GPSD_LONGITUDE
+      INPUTFIXSTATUS 	= GPSD_MODE
+      OUTPUTX 				= GPS_X
+      OUTPUTY 				= GPS_Y
 }
 
 ProcessConfig = pBBBlue
@@ -46,46 +49,60 @@ ProcessConfig = pBBBlue
 
 ProcessConfig = pNavEKF
 {
-    AppTick   			= 10
-    CommsTick 			= 10
-	Input 				= GPS_X
-	Input_Type 			= X
-	Input 				= GPS_Y
-	Input_Type 			= Y
-	Input 				= GPSD_track
-	Input_Type 			= Theta
-	Input 				= BBBL_DMP_HEADING
-	Input_Type 			= Theta
-	Input 				= GPSD_speed
-	Input_Type 			= V
-	Input 				= BBBL_DMP_HEADING_RATE
-	Input_Type 			= Theta_Dot
-	Input 				= BBBL_LONG_ACCEL
-	Input_Type 			= V_Dot
-	PROCESS_NOISE		= 0.1
-	MEASUREMENT_NOISE	= 0.01
+	AppTick   				= 10
+	CommsTick 				= 10
+	INPUT 						= GPS_X
+	INPUT_TYPE 				= X
+	INPUT 						= GPS_Y
+	INPUT_TYPE 				= Y
+	INPUT 						= GPSD_TRACK
+	INPUT_TYPE 				= THETA
+	INPUT 						= BBBL_DMP_HEADING
+	INPUT_TYPE 				= THETA
+	INPUT 						= GPSD_SPEED
+	INPUT_TYPE 				= V
+	INPUT 						= BBBL_DMP_HEADING_RATE
+	INPUT_TYPE 				= THETA_DOT
+	INPUT 						= BBBL_DMP_LONG_ACCEL
+	INPUT_TYPE 				= V_DOT
+	P_MATRIX_OUT			= EKF_COV
+	PROCESS_NOISE			= 1
+	MEASUREMENT_NOISE	= 1
 }
 
 ProcessConfig = pLogger
 {
-	AppTick = 20
-	CommsTick = 20
-	SyncLog = true @ 0.2
-	AsyncLog = true
-	Log = GPSD_mode @ 0
-	Log = GPSD_latitude @ 0
-	Log = GPSD_longitude @ 0
-	Log = GPSD_speed @ 0
-	Log = GPSD_track @ 0
-	Log = GPS_X @ 0
-	Log = GPS_Y @ 0
-	Log = BBBL_DMP_HEADING @ 0
-	Log = BBBL_DMP_HEADING_RATE @ 0
-	Log = BBBL_LONG_ACCEL @ 0
-	Log = X_OUT @ 0
-	Log = Y_OUT @ 0
-	Log = Theta_out @ 0
-	Log = V_OUT @ 0
-	Log = Theta_dot_out @ 0
-	Log = V_dot_OUT @ 0
+	APPTICK = 20
+	COMMSTICK = 20
+	SYNCLOG = TRUE @ 0.2
+	ASYNCLOG = TRUE
+	LOG = GPSD_MODE @ 0
+	LOG = GPSD_LATITUDE @ 0
+	LOG = GPSD_LONGITUDE @ 0
+	LOG = GPSD_SPEED @ 0
+	LOG = GPSD_TRACK @ 0
+	LOG = GPS_X @ 0
+	LOG = GPS_Y @ 0
+	LOG = BBBL_DMP_HEADING @ 0
+	LOG = BBBL_DMP_HEADING_RATE @ 0
+	LOG = BBBL_DMP_LONG_ACCEL @ 0
+	LOG = EKF_X @ 0
+	LOG = EKF_Y @ 0
+	LOG = EKF_THETA @ 0
+	LOG = EKF_V     @ 0
+	LOG = EKF_THETA_DOT @ 0
+	LOG = EKF_V_DOT @ 0
+	LOG = EKF_COV @ 0
+	LOG = EKF_DEBUG_STEP @ 0
+	LOG = EKF_DEBUG_F @ 0
+	LOG = EKF_DEBUG_H @ 0
+	LOG = EKF_DEBUG_OBSV @ 0
+	LOG = EKF_DEBUG_X_PRED @ 0
+	LOG = EKF_DEBUG_Y_PRED @ 0
+	LOG = EKF_DEBUG_Y_ACT @ 0
+	LOG = EKF_DEBUG_Y_ERR @ 0
+	LOG = EKF_DEBUG_P @ 0
+	LOG = EKF_DEBUG_L @ 0
+	LOG = EKF_DEBUG_S @ 0
+	LOG = EKF_DEBUG_X_EST @ 0
 }

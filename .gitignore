@@ -13,3 +13,5 @@ MOOSLog*
 nohup.out 
 *.moos\+\+
 lib/*
+*.lst
+tags
