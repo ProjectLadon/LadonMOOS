@@ -15,3 +15,5 @@ nohup.out
 lib/*
 *.lst
 tags
+.tags
+.tags1

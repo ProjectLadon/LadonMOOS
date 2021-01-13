@@ -18,6 +18,7 @@ function(tags_add_dir _dir)
 		get_property(_t_incdir TARGET ${_tgt} PROPERTY INCLUDE_DIRECTORIES)
 		get_property(_t_files  TARGET ${_tgt} PROPERTY SOURCES)
 		get_property(_t_defs   TARGET ${_tgt} PROPERTY COMPILE_DEFINITIONS)
+        message(STATUS ${_t_incdir})
 
 		list(APPEND _all_source_files ${_t_files})
 		# string(REGEX REPLACE "${CMAKE_CURRENT_SOURCE_DIR}/" "" _t_files "${_t_files}")
@@ -31,8 +32,11 @@ function(tags_add_dir _dir)
 endfunction()
 
 if(CTAGS)
-	set(SOURCES_LIST "${CMAKE_BINARY_DIR}/source_files.lst")
-	set(CTAGS_IDENTIFIER_LIST "${CMAKE_BINARY_DIR}/identifier.lst")
+	set(SOURCES_LIST "${CMAKE_CURRENT_SOURCE_DIR}/source_files.lst")
+	set(CTAGS_IDENTIFIER_LIST "${CMAKE_CURRENT_SOURCE_DIR}/identifier.lst")
+	set(CTAGS_TAG_FILE "${CMAKE_CURRENT_SOURCE_DIR}/tags")
+    message(STATUS ${CTAGS_TAG_FILE})
+
 	set(_all_source_files "")
 	set(_all_definitions "")
 
@@ -43,17 +47,10 @@ if(CTAGS)
 
 	list(SORT _all_source_files)
 	list(REMOVE_DUPLICATES _all_source_files)
-    message(STATUS ${_all_source_files})
-	# string(REGEX REPLACE "${CMAKE_CURRENT_SOURCE_DIR}/" "" _asf "${_all_source_files}")
-	# string(REGEX REPLACE ";" "\n" _asf "${_asf}")
 	string(REGEX REPLACE ";" "\n" _asf "${_all_source_files}")
-    message(STATUS ${_asf})
 	file(APPEND ${SOURCES_LIST} "\n${_asf}")
 
-	# string(REGEX REPLACE "${CMAKE_CURRENT_SOURCE_DIR}/" "" _t_extra "${TAGS_EXTRA_FILES}")
-	# string(REGEX REPLACE ";" "\n" _t_extra "${_t_extra}")
 	string(REGEX REPLACE ";" "\n" _t_extra "${TAGS_EXTRA_FILES}")
-    message(STATUS ${_t_extra})
 	file(APPEND ${SOURCES_LIST} "\n${_t_extra}")
 
 	string(REGEX REPLACE ";" "\n" _all_definitions "${_all_definitions}")
@@ -62,20 +59,12 @@ if(CTAGS)
 
 	add_custom_target(tags ALL)
 
-	if (NOT CTAGS_TAG_FILE)
-		set(CTAGS_TAG_FILE "${CMAKE_CURRENT_SOURCE_DIR}/tags" CACHE STRING "ctags output file")
-	endif()
-
 	add_custom_target(ctags
-		COMMAND ctags --extra=+q --c-kinds=+lpx --fields=afikmsSzt
+		# COMMAND ctags --extra=+q --c-kinds=+lpx --fields=afikmsSzt
+		COMMAND ctags --extra=+q --c-kinds=+lpx --fields=+KSn
 		-I ${CTAGS_IDENTIFIER_LIST} -f ${CTAGS_TAG_FILE} -L ${SOURCES_LIST}
 		DEPENDS ${_all_source_files}
-		WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+		WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
 		VERBATIM)
-	add_custom_command(TARGET ctags
-		COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/support/gen_types.sh ${CTAGS_TAG_FILE} ${CMAKE_SOURE_DIR}
-		DEPENDS ${CTAGS_TAG_FILE}
-		WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
-		)
 	add_dependencies(tags ctags)
 endif()
