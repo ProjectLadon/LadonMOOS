@@ -16,7 +16,7 @@ INCLUDE_DIRECTORIES(${LOCAL_LIBRARY_DIRS})
 #============================================================================
 
 find_file(BBBLUE_HEADER roboticscape.h)
-message(STATUS, ${BBBLUE_HEADER})
+# message(STATUS, ${BBBLUE_HEADER})
 
 #============================================================================
 # List the subdirectories to build...
