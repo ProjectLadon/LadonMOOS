@@ -1,8 +1,8 @@
 # Operating System
-Debian Stretch 32-bit
+Debian Buster 10.3 32-bit
 
 # ROS Installation
-ROS Melodic, full installation (http://wiki.ros.org/melodic/Installation/Debian)
+ROS Noetic, full desktop installation (http://wiki.ros.org/melodic/Installation/Debian)
 
 Create workspace in ~/catkin_ws with the following instructions, after the installation of ROS:
 - ``mkdir -p ~/catkin_ws/src``
@@ -51,6 +51,10 @@ python-twisted
 ## muparser
 
 ## tinyxml2
+
+## Eigen3
+
+## autodiff
 
 # Additional ROS packages
 
