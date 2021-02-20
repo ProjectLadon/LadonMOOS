@@ -82,8 +82,16 @@ Generally, you need to fetch these git repositories into your catkin_ws/src dire
 
 ## pluginlib
 
+``https://github.com/ros/pluginlib.git``
+
 ## ros_canopen
+
+``https://github.com/ros-industrial/ros_canopen.git``
 
 ## ros_control
 
+``https://github.com/ros-controls/ros_control.git``
+
 ## roslint
+
+``https://github.com/ros/roslint.git``
